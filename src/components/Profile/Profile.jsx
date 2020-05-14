@@ -1,4 +1,5 @@
 import React from 'react';
+import MyPosts from './MyPosts/MyPosts'
 import classes from './Profile.module.css';  // импорт css в виде объекта, ключами которого являются классы
 
 const Profile = () =>{
@@ -16,20 +17,7 @@ const Profile = () =>{
                     <span className={classes.text}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit beatae mollitia a reiciendis consequatur possimus at repudiandae quos rerum cum accusamus quidem qui aspernatur numquam adipisci nulla labore, tenetur odit!</span>
                 </div>
             </div>
-            <div>
-                My Posts
-                <div>
-                New Post
-                </div>
-                <div className="posts">
-                    <div >
-                        post1
-                    </div>
-                    <div>
-                        post 2
-                    </div>
-                </div>
-            </div>
+            <MyPosts />
         </div>
     );
 }
