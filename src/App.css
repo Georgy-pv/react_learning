@@ -1,38 +1,87 @@
-.App {
-  text-align: center;
+*{
+    box-sizing: border-box;
+}
+body{
+    padding: 0;
+    margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app-wrapper{
+    display: grid;
+    max-width: 100vw;
+    grid-template-areas: 
+    "h h"
+    "n c";
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 2fr 10fr;
+    /* grid-gap: 10px; */
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header{
+    grid-area: h;
+    background: #2439C6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.header__logo{
+    width: 50px;
+    display: inline-block;
 }
-
-.App-link {
-  color: #61dafb;
+.header__search{
+    display: flex;
+    align-items: center;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header__search-input{
+    border: none;
+    border-radius: 50px;
+    width: 200px;
+    padding: 10px;
+    background: #1C2C90;
+    color: #ffffff;
+}
+.header__search-btn{
+    border: none;
+    /* width: 10px; */
+    padding:10px 15px;
+    border-radius: 50%;
+    margin-left: 5px;
+    background: #1C2C90;
+    color: #fff;
+}
+.nav{
+    grid-area: n;
+    background: blue;
+    padding: 10px;
+    margin-right: 10px;
+}
+.nav__link{
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 25px;
+}
+.content{
+    grid-area: c;
+    background: #C6CCF5;
+}
+.content__img-head{
+    height: 150px;
+    background: url(https://filedn.com/ltOdFv1aqz1YIFhf4gTY8D7/ingus-info/BLOGS/Photography-stocks3/stock-photography-slider.jpg) no-repeat center center;
+}
+.content__profile-info{
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.content__profile-img{
+    border-radius: 50px;
+}
+.content__profile-description{
+    padding: 20px;
+    padding-top: 0;
+}
+.content__profile-name{
+    display: block;
+    font-size: 20px;
 }
