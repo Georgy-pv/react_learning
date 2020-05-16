@@ -4,7 +4,7 @@ import classes from './Profile.module.css';  // импорт css в виде о�
 
 const Profile = () =>{
     return (
-        <div className={classes.content}>
+        <div>
             <div className={classes.head}>
                 
             </div>

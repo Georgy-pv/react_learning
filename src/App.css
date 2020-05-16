@@ -17,5 +17,8 @@ body{
     grid-template-columns: 2fr 10fr;
     /* grid-gap: 10px; */
 }
+.app-wrapper__content{
+    grid-area: c;
 
+}
 

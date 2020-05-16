@@ -1,3 +1,6 @@
+.post__wrap span{
+/* display: block; */
+}
 .item{
     display: flex;
     justify-content: space-between;
@@ -11,7 +14,8 @@
     display: inline;
 }
 .text{
-    max-width: 90%;
+    display: block;
+    width: 85%;
     background:#fff;
     padding: 10px;
     border-radius: 10px;
