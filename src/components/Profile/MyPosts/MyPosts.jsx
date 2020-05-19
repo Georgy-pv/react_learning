@@ -5,7 +5,7 @@ import Post from './Post/Post';
 const MyPosts = (props) =>{
     //преобразование данных в jsx 
 let postsElements = props.postsData.map((p) => {
-    return <Post message={p.message} likesCount={p.likesCount}/>
+    return <Post key={p.id} message={p.message} likesCount={p.likesCount}/>
 })
     return (
         <div>

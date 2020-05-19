@@ -16,3 +16,8 @@
     background: #7a89ee;
     border-radius: 50px;
 }
+.bestfriends{
+    margin-top: 160px;
+    display: flex;
+    justify-content: space-between;
+}

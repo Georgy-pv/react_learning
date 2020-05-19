@@ -11,15 +11,14 @@ import Settings from './components/Settings/Settings';
 
 
 const App = (props) => {
-     
     return (
         <BrowserRouter>
             <div className="app-wrapper">
                 <Header />
-                <Navbar />
+                <Navbar state={props.appState.sidebar} />
                 <div className="app-wrapper__content">
-                    <Route path="/profile" render={() => <Profile postsData={props.postsData}/>} />
-                    <Route path="/dialogs" render={ () => <Dialogs dialogsData={props.dialogsData} messagesData={props.messagesData} /> }/>
+                    <Route path="/profile" render={() => <Profile profilePage={props.appState.profilePage}/>} />
+                    <Route path="/dialogs" render={ () => <Dialogs dialogsPage={props.appState.dialogsPage}/> }/>
                     <Route path="/feed" component={Feed} />
                     <Route path="/music" component={Music} />
                     <Route path="/settings" component={Settings} />
