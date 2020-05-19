@@ -1,3 +1,10 @@
+.MyPosts{
+    background: rgb(240, 246, 255);
+    border-radius: 10px;
+    border: 2px solid #bebebe;
+    margin-top: 20px;
+    box-shadow:  0 0 11px rgba(0,0,0,0.6);
+}
 .posts{
     width: 80%;
     margin: 0 auto;

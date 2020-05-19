@@ -1,0 +1,25 @@
+.info{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    background: rgb(240, 246, 255);
+    border-radius: 10px;
+    border: 2px solid #bebebe;
+    padding: 10px;
+    box-shadow:  0 0 11px rgba(0,0,0,0.6);
+}
+.ava{
+    display: inline;
+}
+.img{
+    border-radius: 50px;
+    display: inline;
+}
+.description{
+    padding: 20px;
+    padding-top: 0;
+}
+.name{
+    display: block;
+    font-size: 20px;
+}
