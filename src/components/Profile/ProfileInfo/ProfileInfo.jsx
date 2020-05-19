@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './ProfileInfo.module.css';  // импорт css в виде объекта, ключами которого являются классы
 
+
 const ProfileInfo = (props) => {
     return (
         <div className={classes.info}>
