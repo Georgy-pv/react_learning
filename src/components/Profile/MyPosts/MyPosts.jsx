@@ -14,7 +14,7 @@ let postsElements = props.postsData.map((p) => {
             <div className={classes.MyPosts}>
                 My Posts
                 <div className={classes.newPost}>
-                    <NewPost addPost={props.addPost}/>
+                    <NewPost updateNewPostText={props.updateNewPostText} newPostText={props.newPostText} addPost={props.addPost}/>
                 </div>
                 <div className={classes.posts}>
                     {postsElements}
