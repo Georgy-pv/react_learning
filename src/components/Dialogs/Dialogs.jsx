@@ -6,7 +6,7 @@ import Message from './Message/Message';
 
 
 const Dialogs = (props) => {
-        // получение JSX элемента из данных с сервера
+    // получение JSX элемента из данных с сервера
     let messagesElements = props.dialogsPage.messagesData.map((m) => {
         return <Message key={m.id} message={m.message} />
     });
@@ -15,11 +15,12 @@ const Dialogs = (props) => {
         return <DialogItem key={d.id} name={d.name} id={d.id} />
     });
 
+
     return (
         <div>
             <div className={style.dialogs}>
-                <div className={style.dialogsItems}> 
-                        {/* отрисовка */}
+                <div className={style.dialogsItems}>
+                    {/* отрисовка */}
                     {dialogsElements}
                 </div>
                 <div className={style.messages}>

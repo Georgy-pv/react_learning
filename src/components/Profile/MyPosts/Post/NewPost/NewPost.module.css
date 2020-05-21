@@ -1,0 +1,23 @@
+#newPostTxt{
+    outline: none;
+    resize: none;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, .2);
+    padding: 5px;
+    width: 100%;
+}
+.btn{
+    background: #1c2c90;
+    border: none;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+.btn:hover{
+    cursor: pointer;
+}
+.btn:active{
+    background: #091568;
+}
