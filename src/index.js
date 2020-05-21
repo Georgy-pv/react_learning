@@ -1,15 +1,17 @@
 import * as serviceWorker from './serviceWorker';
-import state, { subs } from './redux/state';
+import store from './redux/state';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { addPost, updateNewPostText } from './redux/state';
+
+let state = store.getState();
+
 
 let rerenderTree = (state) => {
     ReactDOM.render(
         <React.StrictMode>
-            <App updateNewPostText={updateNewPostText} addPost={addPost} appState={state} />
+            <App updateNewPostText={store.updateNewPostText.bind(store)} addPost={store.addPost.bind(store)} appState={state} />
         </React.StrictMode>,
         document.getElementById('root')
     );
@@ -17,7 +19,7 @@ let rerenderTree = (state) => {
 
 rerenderTree(state);
 
-subs(rerenderTree);
+store.subs(rerenderTree);
 
 
 
