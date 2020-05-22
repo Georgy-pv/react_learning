@@ -19,6 +19,7 @@ body{
 }
 .app-wrapper__content{
     grid-area: c;
+    min-height: 90vh;
 
 }
 

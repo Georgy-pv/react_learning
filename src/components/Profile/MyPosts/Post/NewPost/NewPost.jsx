@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './NewPost.module.css';  // импорт css в виде объекта, ключами которого являются классы
-import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../../../redux/state';
+import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../../../redux/profile-reducer';
 
 
 
