@@ -1,17 +1,23 @@
 import React from 'react';
 import style from './NewPost.module.css';  // импорт css в виде объекта, ключами которого являются классы
+import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../../../redux/state';
+
+
+
 
 const NewPost = (props) => {
-    console.log(props)
     let newPostElement = React.createRef();
 
+    
     let addPost = () =>{
-        props.addPost();
+        let action = addPostActionCreator();
+        props.dispatch(action);
     }
 
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        props.updateNewPostText(text);
+        let action = updateNewPostTextActionCreator(text);
+        props.dispatch(action);
     }
     return (
         <div>

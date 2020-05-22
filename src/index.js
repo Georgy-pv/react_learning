@@ -11,7 +11,7 @@ let state = store.getState();
 let rerenderTree = (state) => {
     ReactDOM.render(
         <React.StrictMode>
-            <App updateNewPostText={store.updateNewPostText.bind(store)} addPost={store.addPost.bind(store)} appState={state} />
+            <App dispatch={store.dispatch.bind(store)} appState={state} />
         </React.StrictMode>,
         document.getElementById('root')
     );
