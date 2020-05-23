@@ -11,7 +11,7 @@ import App from './App';
 let rerenderTree = (state) => {
     ReactDOM.render(
         <React.StrictMode>
-            <App dispatch={store.dispatch.bind(store)} appState={state} />
+            <App store={store}/>
         </React.StrictMode>,
         document.getElementById('root')
     );
@@ -20,7 +20,6 @@ let rerenderTree = (state) => {
 
 
 rerenderTree(store.getState());
-debugger
 store.subscribe( ()=> {
     let state = store.getState()
     rerenderTree(state);

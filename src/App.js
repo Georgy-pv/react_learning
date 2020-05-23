@@ -8,6 +8,7 @@ import { Route, BrowserRouter } from 'react-router-dom';
 import Feed from './components/Feed/Feed';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 
 
 const App = (props) => {
@@ -15,12 +16,10 @@ const App = (props) => {
         <BrowserRouter>
             <div className="app-wrapper">
                 <Header />
-                <Navbar state={props.appState.sidebar} />
+                <Navbar state={props.store.getState().sidebar} />
                 <div className="app-wrapper__content">
-                    <Route path="/profile" render={() => <Profile dispatch={props.dispatch} 
-                                                                    profilePage={props.appState.profilePage}/>} />
-                    <Route path="/dialogs" render={ () => <Dialogs dispatch={props.dispatch} 
-                                                                    dialogsPage={props.appState.dialogsPage}/> }/>
+                    <Route path="/profile" render={() => <Profile store={props.store} />} />
+                    <Route path="/dialogs" render={ () => <DialogsContainer store={props.store}/>} />
                     <Route path="/feed" component={Feed} />
                     <Route path="/music" component={Music} />
                     <Route path="/settings" component={Settings} />

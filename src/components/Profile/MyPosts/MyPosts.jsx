@@ -1,23 +1,36 @@
 import React from 'react';
 import classes from './MyPosts.module.css';  // импорт css в виде объекта, ключами которого являются классы
 import Post from './Post/Post';
-import NewPost from './Post/NewPost/NewPost';
 
 const MyPosts = (props) =>{
     //преобразование данных в jsx 
-let postsElements = props.postsData.map((p) => {
-    return <Post key={p.id} message={p.message} likesCount={p.likesCount}/>
-}) 
+    let newPostElement = React.createRef();
+
+    let onAddPost = () => {
+        props.addPost()
+    }
+
+    let onPostChange = () => {
+        let text = newPostElement.current.value;
+        props.updateNewPostText(text);
+    }
+
 
     return (
         <div>
             <div className={classes.MyPosts}>
                 My Posts
                 <div className={classes.newPost}>
-                    <NewPost dispatch={props.dispatch} newPostText={props.newPostText} />
+                    <div className="text">
+                        <textarea ref={newPostElement} onChange={onPostChange} name="newPost" 
+                                    id={classes.newPostTxt} value={props.profilePage.newPostText} />
+                    </div>
+                    <div>
+                        <button onClick={onAddPost} className={classes.btn}>Add Post</button>
+                    </div>
                 </div>
                 <div className={classes.posts}>
-                    {postsElements}
+                    {props.postsElements}
                 </div>
             </div>
         </div>
