@@ -48,7 +48,7 @@ let store = {
     getState() {
         return this._state;
     },
-    subs(observer) {
+    subscribe(observer) {
         this._rerenderTree = observer;;  // observer - наблюдатель, паттерн
     },
     

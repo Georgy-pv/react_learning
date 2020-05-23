@@ -1,11 +1,11 @@
 import * as serviceWorker from './serviceWorker';
-import store from './redux/state';
+import store from './redux/redux-store';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-let state = store.getState();
+
 
 
 let rerenderTree = (state) => {
@@ -17,9 +17,14 @@ let rerenderTree = (state) => {
     );
 }
 
-rerenderTree(state);
 
-store.subs(rerenderTree);
+
+rerenderTree(store.getState());
+debugger
+store.subscribe( ()=> {
+    let state = store.getState()
+    rerenderTree(state);
+});
 
 
 
