@@ -1,0 +1,60 @@
+.usersPage{
+    background: rgb(240, 246, 255);
+    border-radius: 10px;
+    border: 2px solid #bebebe;
+    margin-top: 20px;
+    box-shadow:  0 0 11px rgba(0,0,0,0.6);
+    max-width: 100%;
+    min-height: 100%;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    border-bottom: none;
+}
+.userItem{
+    display: flex;
+    max-width: 70%;
+    margin: 20px auto;
+    /* height: 100px; */
+    padding: 10px 100px;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+.userImg{
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.btn{
+    padding: 10px;
+    background: #7a89ee;
+    color: rgb(0, 11, 158);
+    letter-spacing: 1px;
+    border: none;
+    margin: 0 auto;
+    display: block;
+    margin-top: 5px;
+}
+.userInfo{
+    display: flex;
+    margin-left: 15px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.userName{
+    font-weight: 600;
+    font-size: 18px;
+
+}
+.userStatus{
+    font-size: 15px;
+    color: rgba(0,0,0,0.6);
+    margin-bottom: 40px;
+}
+.userLocation {
+    margin-left: auto;
+}
+.userLocation span{
+    display: block;
+}
+
