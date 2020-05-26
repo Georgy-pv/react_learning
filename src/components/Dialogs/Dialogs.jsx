@@ -6,14 +6,17 @@ class Dialogs extends React.Component {
     constructor(props) {
         super(props);
         this.newMessageElement = React.createRef();
-        this.onMessageChange = () => {
-            let text = this.newMessageElement.current.value;
-            this.props.messageChange(text);
-        }
-        this.onSendMessage = () => {
-            this.props.sendMassege();
-        }
     }
+
+    onMessageChange = () => {
+        let text = this.newMessageElement.current.value;
+        this.props.messageChange(text);
+    }
+
+    onSendMessage = () => {
+        this.props.sendMassege();
+    }
+    
     render(){
         return (
             <div className={style.dialogs}>

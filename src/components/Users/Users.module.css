@@ -14,7 +14,6 @@
     display: flex;
     max-width: 70%;
     margin: 20px auto;
-    /* height: 100px; */
     padding: 10px 100px;
     border-bottom: 1px solid rgba(0,0,0,0.2);
 }
@@ -57,4 +56,10 @@
 .userLocation span{
     display: block;
 }
-
+.selectedPage{
+    font-weight: 600;
+}
+.page{
+    padding: 0px 5px;
+    cursor: pointer;
+}

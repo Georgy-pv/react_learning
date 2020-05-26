@@ -5,14 +5,17 @@ class MyPosts extends React.Component {
     constructor(props) {
         super(props);
         this.newPostElement = React.createRef();
-        this.onAddPost = () => {
-            this.props.addPost()
-        };
-        this.onPostChange = () => {
-            let text = this.newPostElement.current.value;
-            this.props.updateNewPostText(text);
-        };
     }
+
+    onPostChange = () => {
+        let text = this.newPostElement.current.value;
+        this.props.updateNewPostText(text);
+    }
+
+    onAddPost = () => {
+        this.props.addPost();
+    }
+
     render() {
         return (
             <div>
