@@ -2,6 +2,8 @@ import React from 'react';
 import classes from './Users.module.css';
 import userImg from '../../assads/image/user-lock.jpg'
 import { NavLink } from 'react-router-dom';
+import * as axios from 'axios';
+import { followDAL, unFollowDAL } from '../../API/API';
 
 const Users = (props) => {
      let pageCount = Math.ceil(props.totalUsersCount/ props.pageSize);
@@ -9,6 +11,23 @@ const Users = (props) => {
         for(var i = 1; i < pageCount; i++){
             page.push(i);
         }
+        
+    let onFollow = (userId) => {
+        followDAL(userId).then(response => {
+            if(response.data.resultCode === 0){
+                props.follow(userId)
+            }
+        })
+    }
+        
+    let onUnFollow = (userId) => {
+        unFollowDAL(userId).then(response => {
+            if(response.data.resultCode === 0){
+                props.unFollow(userId)
+            }
+        })
+    }
+
     return (
         <div className={classes.usersPage}>
             <div>
@@ -25,9 +44,9 @@ const Users = (props) => {
                             style={{ backgroundImage: u.photos.large != null ? 
                             `url(${u.photos.large})` : `url(${userImg})` }}></div>
                         </NavLink>
-                        {u.subscription
-                            ? <button className={classes.btn} onClick={() => {props.unFollow(u.id) }}>Unsubscribe</button>
-                            : <button className={classes.btn} onClick={() => {props.follow(u.id) }}>Subscribe</button>}
+                        { u.followed
+                            ? <button className={classes.btn} onClick={() => { onUnFollow(u.id) }}>Unsubscribe</button>
+                            : <button className={classes.btn} onClick={() => { onFollow(u.id) }}>Subscribe</button> }
                     </div>
 
                     <div className={classes.userInfo}>
