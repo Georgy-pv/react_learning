@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { follow, 
-        unfollow, 
+        unFollow, 
         setUsers, 
         setCurrentPage, 
         setTotalUsersCount, 
@@ -71,5 +71,5 @@ let mapStateToProps = (state) => {
 
 
 export const UsersContainer = connect(mapStateToProps, {
-    follow, unfollow,setUsers,setCurrentPage,setTotalUsersCount,setIsFetching 
+    follow, unFollow,setUsers,setCurrentPage,setTotalUsersCount,setIsFetching 
 })(UsersAPIComponent);  
