@@ -11,7 +11,7 @@
     width: 50px;
     display: inline-block;
 }
-.search{
+.right{
     display: flex;
     align-items: center;
 }
@@ -29,5 +29,11 @@
     border-radius: 50%;
     margin-left: 5px;
     background: #1C2C90;
+    color: #fff;
+}
+.loginBlock{
+    margin-right: 15px;
+}
+.loginBlock span{
     color: #fff;
 }
