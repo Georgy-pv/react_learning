@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Users.module.css';
 import userImg from '../../assads/image/user-lock.jpg'
 import { NavLink } from 'react-router-dom';
-import { followDAL, unFollowDAL } from '../../API/API';
+import { usersAPI} from '../../API/API';
 
 const Users = (props) => {
      let pageCount = Math.ceil(props.totalUsersCount/ props.pageSize);
@@ -33,25 +33,10 @@ const Users = (props) => {
                         </NavLink>
                         { u.followed
                             ? <button disabled={props.fetchFollowing.some(id=>id===u.id)} className={classes.btn} onClick={() => { 
-                                props.toggleFetchFollowing(true, u.id);
-                                unFollowDAL(u.id).then(response => {
-                                    if(response.data.resultCode === 0){
-                                        props.unFollow(u.id)
-                                    }
-                                    
-                                    props.toggleFetchFollowing(false, u.id);
-                                })
+                                props.unFollow(u.id)
                             }}>Unsubscribe</button>
                             : <button disabled={props.fetchFollowing.some(id=>id===u.id)} className={classes.btn} onClick={() => {
-                                props.toggleFetchFollowing(true, u.id);
-                                followDAL(u.id).then(response => {
-                                    if(response.data.resultCode === 0){
-                                        debugger
-                                        props.follow(u.id)
-                                    }
-                                    props.toggleFetchFollowing(false, u.id);
-                                    console.log(props.fetchFollowing)
-                                })
+                                props.follow(u.id)
                             }}>Subscribe</button> }
                     </div>
 
