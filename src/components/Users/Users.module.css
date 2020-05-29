@@ -24,7 +24,7 @@
     background-position: center;
     background-size: cover;
 }
-.btn{
+/* .btn{
     padding: 10px;
     background: #7a89ee;
     color: rgb(0, 11, 158);
@@ -33,7 +33,7 @@
     margin: 0 auto;
     display: block;
     margin-top: 5px;
-}
+} */
 .userInfo{
     display: flex;
     margin-left: 15px;

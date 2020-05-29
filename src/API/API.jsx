@@ -8,7 +8,8 @@ let axiosInstance = axios.create({
     }
 })
 
-export let getUsers = (currentPage, pageSize) => {
+
+export let getUsersDAL = (currentPage, pageSize) => {
     return axiosInstance.get(`users?page=${currentPage}&count=${pageSize}`)
             .then(response => response.data)
 }
