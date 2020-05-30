@@ -21,11 +21,12 @@ export const usersAPI = {
     },
     profileDAL(userId) {
         return axiosInstance.get(`profile/${userId}`)
-    },
-    headerDAL(){
-        return axiosInstance.get(`auth/me`)
-        
     }
+}
 
+export const authAPI = {
+    me(){
+        return axiosInstance.get(`auth/me`)
+    }
 }
 
