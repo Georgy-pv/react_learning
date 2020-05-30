@@ -2,12 +2,13 @@ import React from 'react';
 import classes from './ProfileInfo.module.css';  // импорт css в виде объекта, ключами которого являются классы
 import Preloader from '../../common/Preloader/Preloader';
 import userLock from '../../../assads/image/user-lock.jpg'
+import ProfileStatus from './ProfileStatus';
 
 const ProfileInfo = (props) => {
     if (!props.profile){
         return <Preloader/>
     }
-    
+    window.props = props;
 
     return (
         <div className={classes.info}>
@@ -25,7 +26,7 @@ const ProfileInfo = (props) => {
                         <span style={{display: 'block'}}>{props.profile.contacts.website}</span>
                     </div>
                     <div style={{marginTop: '10px'}} className="">
-                        About Me: {props.profile.aboutMe}
+                        <ProfileStatus status={'Hello, World!'} />
                     </div>
                 </div>
             </div>

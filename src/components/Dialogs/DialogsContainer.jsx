@@ -4,45 +4,10 @@ import Message from './Message/Message';
 import { sendMassegeActionCreator, updateNewMessageTextActionCreator } from '../../redux/dialogs-reducer';
 import Dialogs from './Dialogs';
 import { connect } from 'react-redux';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import { compose } from 'redux';
 
 
-
-// const DialogsContainer = (props) => {
-
-//     return (
-//         <StoreContext.Consumer>
-//             { (store) => {
-//                 let dialogsPage = store.getState().dialogsPage;
-
-//                 // получение JSX элемента из данных с сервера
-//                 let messagesElements = dialogsPage.messagesData.map((m) => {
-//                     return <Message key={m.id} message={m.message} />
-//                 });
-
-//                 let dialogsElements = dialogsPage.dialogsData.map((d) => {
-//                     return <DialogItem key={d.id} name={d.name} id={d.id} />
-//                 });
-
-//                 let onMessageChange = (text) => {
-//                     let action = updateNewMessageTextActionCreator(text);
-//                     store.dispatch(action);
-//                 }
-
-//                 let sendMessage = () => {
-//                     let action = sendMassegeActionCreator();
-//                     store.dispatch(action);
-//                 }
-//                 return <Dialogs messageChange={onMessageChange}
-//                     sendMassege={sendMessage}
-//                     messagesElements={messagesElements}
-//                     dialogsElements={dialogsElements}
-//                     dialogsPage={dialogsPage} />
-//             }
-//         }
-//         </StoreContext.Consumer>
-
-//     );
-// }
 
 let mapStateToProps = (state) =>{
     return {
@@ -52,7 +17,7 @@ let mapStateToProps = (state) =>{
         }),
         messagesElements: state.dialogsPage.messagesData.map((m) => {
             return <Message key={m.id} message={m.message} />
-        })  
+        }),
     }
     
 };
@@ -70,6 +35,9 @@ let mapDispatchToProps = (dispatch) => {
         
     }
 };
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
 
-export default DialogsContainer;
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withAuthRedirect
+)(Dialogs)
+

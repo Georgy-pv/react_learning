@@ -10,8 +10,10 @@ import { followSuccess,
         unFollowTC } from '../../redux/users-reducer';
 import Users from './Users';
 import Preloader from '../common/Preloader/Preloader';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import { compose } from 'redux';
 
-class UsersAPIComponent extends React.Component {
+class UsersContainer extends React.Component {
     
     constructor(props){
         super(props)
@@ -38,7 +40,9 @@ class UsersAPIComponent extends React.Component {
                         onPageChanged={this.onPageChanged}
                         users={this.props.users}
                         isFetching={this.props.isFetching}
-                        fetchFollowing={this.props.fetchFollowing} />
+                        fetchFollowing={this.props.fetchFollowing}
+                        followTC={this.props.followTC}
+                        unFollowTC={this.props.unFollowTC} />
                 </>
     }
 }
@@ -56,8 +60,10 @@ let mapStateToProps = (state) => {
     }
 };
 
-
-export const UsersContainer = connect( mapStateToProps, {
-    followSuccess, unFollowSuccess,setCurrentPage, toggleFetchFollowing,
-    getUsers, followTC, unFollowTC
-})(UsersAPIComponent);  
+export default compose(
+    connect( mapStateToProps, {
+        followSuccess, unFollowSuccess,setCurrentPage, toggleFetchFollowing,
+        getUsers, followTC, unFollowTC
+    }),
+    withAuthRedirect
+)(UsersContainer)

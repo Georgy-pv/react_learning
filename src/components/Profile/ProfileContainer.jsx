@@ -3,11 +3,12 @@ import Profile from './Profile';
 import * as axios from 'axios';
 import {getUserProfileTC} from '../../redux/profile-reducer';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { usersAPI } from '../../API/API';
+import { withRouter, Redirect } from 'react-router-dom';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import { compose } from 'redux';
 
 
-class ProfileAPIContainer extends React.Component {
+class ProfileContainer extends React.Component {
 
     componentDidMount(){
         let userId = this.props.match.params.userId;
@@ -19,6 +20,7 @@ class ProfileAPIContainer extends React.Component {
     }
     
     render() {
+        
         return (
             <Profile {...this.props} profile={this.props.profile} />
         );
@@ -26,15 +28,19 @@ class ProfileAPIContainer extends React.Component {
 }
 
 
-let WitRouterProfileCompoment = withRouter(ProfileAPIContainer);
+
+
+
 
 let mapStateToProps = (state) => ({
-    profile: state.profilePage.profile
+    profile: state.profilePage.profile,
 })
-export const ProfileContainer = connect(mapStateToProps, {
-    getUserProfileTC
-})(WitRouterProfileCompoment);
 
+export default compose(
+    connect(mapStateToProps, {getUserProfileTC}),
+    withRouter,
+    // withAuthRedirect
+)(ProfileContainer)
 
 
 

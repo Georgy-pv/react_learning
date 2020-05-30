@@ -33,10 +33,10 @@ const Users = (props) => {
                         </NavLink>
                         { u.followed
                             ? <button disabled={props.fetchFollowing.some(id=>id===u.id)} className={classes.btn} onClick={() => { 
-                                props.unFollow(u.id)
+                                props.unFollowTC(u.id)
                             }}>Unsubscribe</button>
                             : <button disabled={props.fetchFollowing.some(id=>id===u.id)} className={classes.btn} onClick={() => {
-                                props.follow(u.id)
+                                props.followTC(u.id)
                             }}>Subscribe</button> }
                     </div>
 

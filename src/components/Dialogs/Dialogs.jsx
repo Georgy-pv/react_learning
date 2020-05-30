@@ -1,5 +1,6 @@
 import React from 'react';
 import style from './Dialogs.module.css';  // импорт css в виде объекта, ключами которого являются классы
+import { Redirect } from 'react-router-dom';
 
 const Dialogs = (props) =>{
     let newMessageElement = React.createRef();
@@ -12,7 +13,7 @@ const Dialogs = (props) =>{
     let onSendMessage = () => {
         props.sendMassege();
     }
-
+    
     return (
         <div className={style.dialogs}>
             <div className={style.dialogsItems}>
