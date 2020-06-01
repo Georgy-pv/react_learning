@@ -20,7 +20,20 @@ export const usersAPI = {
         return axiosInstance.delete(`follow/${userId}`)
     },
     profileDAL(userId) {
+        console.warn('Obsolete method. Please use profileAPI object')
+        return profileAPI.profileDAL(userId)
+    }
+}
+
+export const profileAPI = {
+    profileDAL(userId) {
         return axiosInstance.get(`profile/${userId}`)
+    },
+    getUserStatus(userId){
+        return axiosInstance.get(`profile/status/${userId}`)
+    },
+    updateStatus(status) {
+        return axiosInstance.put(`profile/status` ,{ status: status});
     }
 }
 

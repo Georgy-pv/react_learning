@@ -25,8 +25,12 @@ const ProfileInfo = (props) => {
                         <span style={{display: 'block'}}>{props.profile.contacts.website}</span>
                         <span style={{display: 'block'}}>{props.profile.contacts.website}</span>
                     </div>
+                    <div>
+                        About Me: {props.profile.aboutMe}
+                    </div>
                     <div style={{marginTop: '10px'}} className="">
-                        <ProfileStatus status={'Hello, World!'} />
+                        Status
+                        <ProfileStatus status={props.status} updateUserStatus={props.updateUserStatus} />
                     </div>
                 </div>
             </div>
