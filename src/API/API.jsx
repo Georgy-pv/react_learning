@@ -40,6 +40,9 @@ export const profileAPI = {
 export const authAPI = {
     me(){
         return axiosInstance.get(`auth/me`)
-    }
+    },
+    login(data){
+        return axiosInstance.post(`auth/me`, {email: data.email, password: data.password, rememberMe: data.rememberMe})
+    },
 }
 
