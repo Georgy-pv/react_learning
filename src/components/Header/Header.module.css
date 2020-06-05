@@ -37,3 +37,19 @@
 .loginBlock span{
     color: #fff;
 }
+.logoutBtn{
+    text-transform: uppercase;
+    border: none;
+    background: #1C2C90;
+    color: #fff;
+    padding: 7px 15px;
+    margin-right: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.logoutBtn:active{
+    background: rgb(14, 26, 105);
+}
+.auth{
+    color: #fff;
+}
