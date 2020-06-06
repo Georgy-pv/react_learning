@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import classes from './Users.module.css';
-import { followSuccess, 
+import {followSuccess, 
         unFollowSuccess, 
         setCurrentPage,
         toggleFetchFollowing,
@@ -12,6 +12,12 @@ import Users from './Users';
 import Preloader from '../common/Preloader/Preloader';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import { compose } from 'redux';
+import {getPageSize, 
+        getTotalUsersCount,
+        getCurrentPage, 
+        getFetching,
+        getFetchFollowing, 
+        getUsersSelector} from '../../redux/users-selectors';
 
 class UsersContainer extends React.Component {
     
@@ -28,6 +34,7 @@ class UsersContainer extends React.Component {
     }
 
     render() {
+        console.log('render')
         return <>
                 {this.props.isFetching ? 
                 <div className={classes.usersPage} >
@@ -49,14 +56,27 @@ class UsersContainer extends React.Component {
 
 
 
+// let mapStateToProps = (state) => {
+//     return{
+//         users: state.usersPage.users,
+//         pageSize: state.usersPage.pageSize,
+//         totalUsersCount: state.usersPage.totalUsersCount,
+//         currentPage: state.usersPage.currentPage,
+//         isFetching: state.usersPage.isFetching,
+//         fetchFollowing: state.usersPage.fetchFollowing
+//     }
+// };
+
+
 let mapStateToProps = (state) => {
+    console.log('mapStateToProps')
     return{
-        users: state.usersPage.users,
-        pageSize: state.usersPage.pageSize,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching,
-        fetchFollowing: state.usersPage.fetchFollowing
+        users: getUsersSelector(state),
+        pageSize: getPageSize(state),
+        totalUsersCount: getTotalUsersCount(state),
+        currentPage: getCurrentPage(state),
+        isFetching: getFetching(state),
+        fetchFollowing: getFetchFollowing(state)
     }
 };
 
