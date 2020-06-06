@@ -3,6 +3,7 @@ import classes from './ProfileInfo.module.css';  // импорт css в виде
 import Preloader from '../../common/Preloader/Preloader';
 import userLock from '../../../assads/image/user-lock.jpg'
 import ProfileStatus from './ProfileStatus';
+import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 
 const ProfileInfo = (props) => {
     if (!props.profile){
@@ -30,7 +31,7 @@ const ProfileInfo = (props) => {
                     </div>
                     <div style={{marginTop: '10px'}} className="">
                         Status
-                        <ProfileStatus status={props.status} updateUserStatus={props.updateUserStatus} />
+                        <ProfileStatusWithHooks status={props.status} updateUserStatus={props.updateUserStatus} />
                     </div>
                 </div>
             </div>
