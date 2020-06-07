@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import classes from './MyPosts.module.css';  // импорт css в виде объекта, ключами которого являются классы
 import { Field, reduxForm } from 'redux-form';
 import { requireField, maxLengthCreator } from '../../../utils/validators/validator';
 import { FormControl } from '../../common/formsControls/formsControls';
+import Post from './Post/Post';
 
 const maxLength50 = maxLengthCreator(50);
 const Textarea = FormControl('textarea')
@@ -25,13 +26,29 @@ const AddNewPostForm = (props) => {
     );
 }
 
-const MyPosts = (props) => {
+// class MyPosts extends React.Component {
 
+
+
+    
+
+//     render(){
+        
+        
+        
+//     }
+// }
+
+const MyPosts = React.memo ((props) => {
 
     let onAddPost = (values) => {
-        
         props.addPost(values.newPostText);
     }
+
+    let postsElements = props.posts.map((p) => {
+        return <Post key={p.id} message={p.message} likesCount={p.likesCount} />
+    });
+
 
     return (
         <div>
@@ -41,13 +58,12 @@ const MyPosts = (props) => {
                     <ReduxAddNewPostForm onSubmit={onAddPost} />
                 </div>
                 <div className={classes.posts}>
-                    {props.postsElements}
+                    {postsElements}
                 </div>
             </div>
         </div>
     );
-
-}
+})
 
 
 const ReduxAddNewPostForm = reduxForm({
