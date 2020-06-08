@@ -34,14 +34,10 @@ class UsersContainer extends React.Component {
     }
 
     render() {
-        console.log('render')
         return <>
-                {this.props.isFetching ? 
-                <div className={classes.usersPage} >
-                    <Preloader />
-                </div>
-                : null}
-                <Users totalUsersCount={this.props.totalUsersCount}
+                {this.props.isFetching 
+                ? <Preloader />
+                : <Users totalUsersCount={this.props.totalUsersCount}
                         pageSize={this.props.pageSize}
                         currentPage={this.props.currentPage}
                         onPageChanged={this.onPageChanged}
@@ -49,13 +45,13 @@ class UsersContainer extends React.Component {
                         isFetching={this.props.isFetching}
                         fetchFollowing={this.props.fetchFollowing}
                         followTC={this.props.followTC}
-                        unFollowTC={this.props.unFollowTC} />
+                        unFollowTC={this.props.unFollowTC} />}
+                
                 </>
     }
 }
 
 let mapStateToProps = (state) => {
-    console.log('mapStateToProps')
     return{
         users: getUsersState(state),
         pageSize: getPageSize(state),

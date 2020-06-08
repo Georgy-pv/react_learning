@@ -6,10 +6,11 @@ import User from './User';
 const Users = (props) => {
     return (
         <div className={classes.usersPage}>
-            <Paginator totalUsersCount={props.totalUsersCount} 
+            <Paginator totalItemsCount={props.totalUsersCount} 
                 pageSize={props.pageSize} 
                 currentPage={props.currentPage} 
-                onPageChanged={props.onPageChanged} />
+                onPageChanged={props.onPageChanged} 
+                portionSize = {10}/>
             {
                 props.users.map(u => <User fetchFollowing={props.fetchFollowing}
                     user={u}
