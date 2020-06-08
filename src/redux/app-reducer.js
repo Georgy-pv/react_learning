@@ -1,6 +1,6 @@
 import { authMe } from "./auth-reducer";
 
-const SET_INITIALIZED = 'SET-INITIALIZED';
+const SET_INITIALIZED = 'app/SET-INITIALIZED';
 
 
 

@@ -8,10 +8,9 @@ import Post from './Post/Post';
 const maxLength50 = maxLengthCreator(50);
 const Textarea = FormControl('textarea')
 
-const AddNewPostForm = (props) => {
-
+const AddNewPostForm = ({handleSubmit}) => {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <div className="text">
                 <Field validate={[requireField, maxLength50]}
                 component={Textarea}
@@ -26,26 +25,13 @@ const AddNewPostForm = (props) => {
     );
 }
 
-// class MyPosts extends React.Component {
-
-
-
-    
-
-//     render(){
-        
-        
-        
-//     }
-// }
-
-const MyPosts = React.memo ((props) => {
+const MyPosts = React.memo (({addPost, posts}) => {
 
     let onAddPost = (values) => {
-        props.addPost(values.newPostText);
+        addPost(values.newPostText);
     }
 
-    let postsElements = props.posts.map((p) => {
+    let postsElements = posts.map((p) => {
         return <Post key={p.id} message={p.message} likesCount={p.likesCount} />
     });
 

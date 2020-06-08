@@ -1,4 +1,4 @@
-const SEND_MASSEGE = 'SEND-MASSAGE';
+const SEND_MASSEGE = 'dialogs/SEND-MASSAGE';
 
 
 let initialState = {
