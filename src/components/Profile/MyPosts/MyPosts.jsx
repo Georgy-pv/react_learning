@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import classes from './MyPosts.module.css';  // импорт css в виде объекта, ключами которого являются классы
 import { Field, reduxForm } from 'redux-form';
 import { requireField, maxLengthCreator } from '../../../utils/validators/validator';

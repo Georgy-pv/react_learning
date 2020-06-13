@@ -24,24 +24,12 @@ const usersReducer = (state = initialState, action) => {
             return {
                 ... state, 
                 users: updateObjectInArray(state.users, action.userId, 'id', {followed: true})
-                // users: state.users.map(u => {
-                //     if (u.id === action.userId){
-                //         return {...u, followed: true}
-                //     }
-                //     return u;
-                // })
             };
         
         case UNFOLLOW:
             return {
                 ... state, 
                 users: updateObjectInArray(state.users, action.userId, 'id', {followed: false})
-                // users: state.users.map(u => {
-                //     if (u.id === action.userId){
-                //         return {...u, followed: false}
-                //     }
-                //     return u;
-                // })
             };
 
         case SET_USERS:
@@ -71,7 +59,7 @@ const usersReducer = (state = initialState, action) => {
         case TOGGLE_FETCH_FOLLOWING:
             return { 
                 ...state, 
-                fetchFollowing: action.isFetching ? [...state.fetchFollowing, action.userId] : state.fetchFollowing.filter(id=> id != action.userId)
+                fetchFollowing: action.isFetching ? [...state.fetchFollowing, action.userId] : state.fetchFollowing.filter(id=> id !== action.userId)
             };
 
         default: 
