@@ -4,15 +4,27 @@ import Preloader from '../../common/Preloader/Preloader';
 import userLock from '../../../assads/image/user-lock.jpg'
 import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 
-const ProfileInfo = ({profile, status, updateUserStatus}) => {
+const ProfileInfo = ({profile, status, updateUserStatus, isOwner, savePhoto}) => {
     if (!profile){
         return <Preloader/>
+    }
+
+    const onMainPhotoSelected = (e) => {
+        if(e.target.files.length){
+            savePhoto(e.target.files[0]);
+        }
+    }
+
+    let avatarStyle = {
+        backgroundImage: `url(${profile.photos.large})`
     }
 
     return (
         <div className={classes.info}>
             <div className={classes.ava}>
-                <img className={classes.img} src={profile.photos.large != null ? profile.photos.large : userLock} alt="" />
+                <div className={classes.img} style={{'background-image': `url(${profile.photos.large || userLock})`}} > </div>
+                {/* <img className={classes.img} style={backgroundImage: } src={profile.photos.large || userLock} alt="" /> */}
+                { isOwner && <input type={'file'} onChange={onMainPhotoSelected} /> }
             </div>
             <div className={classes.description}>
                 <span className={classes.name}>{profile.fullName}</span>
