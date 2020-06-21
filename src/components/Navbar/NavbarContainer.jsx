@@ -14,7 +14,7 @@ import { connect } from 'react-redux';
 let mapStateToProps = (state) => {
     return{
         friendElements: state.sidebar.bestfriends.map((f) => {
-            return <BestFriends name={f.name} imgSrc={f.img} />
+            return <BestFriends key={f.id} name={f.name} imgSrc={f.img} />
         })
     }
 }
