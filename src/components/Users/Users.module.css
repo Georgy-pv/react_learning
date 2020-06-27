@@ -14,8 +14,6 @@
     display: flex;
     max-width: 70%;
     margin: 20px auto;
-    padding: 10px 100px;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
 }
 .userImg{
     width: 100px;
@@ -24,16 +22,7 @@
     background-position: center;
     background-size: cover;
 }
-/* .btn{
-    padding: 10px;
-    background: #7a89ee;
-    color: rgb(0, 11, 158);
-    letter-spacing: 1px;
-    border: none;
-    margin: 0 auto;
-    display: block;
-    margin-top: 5px;
-} */
+
 .userInfo{
     display: flex;
     margin-left: 15px;
@@ -49,6 +38,8 @@
     font-size: 15px;
     color: rgba(0,0,0,0.6);
     margin-bottom: 40px;
+    word-wrap: break-word;
+    width: 400px;
 }
 .userLocation {
     margin-left: auto;
